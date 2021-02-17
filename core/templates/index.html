@@ -1,0 +1,119 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
+{% endblock %}
+
+{% block title %} Fibility {% endblock %}
+
+{% block content %}
+<!-- Who we are section Start -->
+<section id="whoWeare">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 left-w">
+        <img width="100%" src="{% static 'images/Group.png' %}" alt="Group">
+      </div>
+      <div class="col-md-6 right-w">
+        <h2>We Are Here For You</h2>
+        <p>We help you make reasonable decisions when it <br> comes to spending money, not <br>
+          irrational ones.
+        </p>
+        <a href="">Match <img width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Who we are section End -->
+<!-- About us Section Start -->
+<section id="about-us">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 left-w about-left">
+        <h2>About Us</h2>
+        <p>“We are a powerful hybrid of human connection and technology. With a
+          combination of highly skilled financial advisors and automating the process of
+          data entry, seamlessly keeping you up to date when things change and stepping
+          in when you need us, right before you make an impulse purchase online with our
+          machine learning AI.
+          We provide the same services as financial advisor, tailored to the people whose
+          income and net worth are $100k or less a year for FREE.”
+        </p>
+      </div>
+      <div class="col-md-6  about-right">
+        <img width="100%" src="{% static 'images/Group 252.png' %}" alt="Group">
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About us Section End -->
+<!-- Timeline section Start -->
+<section id="time-l">
+  <h3>
+    How it works
+  </h3>
+  <p>We help the world’s leading organizations follow their shipping</p>
+  <div class="timeline">
+    <div class="container-t left">
+      <div class="content">
+        <img src="{% static 'images/1.png' %}" alt="">
+        <img class="time1" src="{% static 'images/one.png' %}" alt=""> <b style="color: #373F41;">Fill out five
+          questions</b>
+        <p>At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</p>
+      </div>
+    </div>
+    <div class="container-t right">
+      <div class="content">
+        <img src="{% static 'images/2.png' %}" alt="">
+        <img class="time1" src="{% static 'images/two.png' %}" alt="">
+        <b>Get matched with an advisor</b>
+
+        <p>At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</p>
+      </div>
+    </div>
+    <div class="container-t left">
+      <div class="content">
+        <img src="{% static 'images/3.png' %}" alt="">
+        <img class="time1" src="{% static 'images/three.png' %}" alt="">
+        <b>Receive our services for free</b>
+        <p>At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</p>
+      </div>
+    </div>
+
+
+  </div>
+
+</section>
+<!-- Timeline section End -->
+<!-- More on us  section Start -->
+<section class="more">
+  <div class="container">
+    <div class="row">
+      <div clas="col-12">
+        <h2 id="more-on-us">More on us</h2>
+        <p id="more-on-us-text">
+          There is a myth that you have to have wealth in order to manage it. Let’s be clear, that is
+          not true. Because not knowing how to effectively manage what they have has shown
+          that it comes at a high cost. Most of us wouldn’t dream of performing surgery on
+          ourselves or even pleading our own case in court. But amazingly enough, people from all
+          walks of life – design and carry out their own financial plans. But Let’s be honest. You
+          don’t have the time to be a financial expert!
+          We meet you right where life has you to take you to where you want to be in the future.
+          We prepare you for a better future and help repair the damages done from your past.
+          We know now more than ever before, it’s easier to shop online which means you’re
+          spending way more money than you have to. You are not alone!
+          This is why we we`re
+          using machine learning algorithms to integrate with users’ phones, tablet and computers,
+          to allow us to intervene before they make any impulse or random purchases online
+          seamlessly.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- More on us section End -->
+
+{% endblock %}

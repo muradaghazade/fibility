@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+class HomePageView(TemplateView):
+    template_name = 'index.html'
 
-# Create your views here.
+
+class CongratulationsPageView(TemplateView):
+    template_name = 'congratulation.html'

@@ -1,0 +1,45 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+{% block title %} Register {% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+    <section class="signin-section">
+        <div class="container ">
+            <div class="row justify-content-md-center">
+                <div class="card-wrapper">
+
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title " style="text-align: center;">Registration</h4>
+                            <form method="POST" class="my-login-validation" novalidate="">
+
+
+                                <div class="form-group m-0">
+                                    <button type="button" class=" financial btn btn-primary btn-block">
+                                        <a href="{% url 'account:advisor' %}"> As a Financial Advisor</a>
+                                    </button>
+                                </div>
+
+                                <div class="form-group m-0">
+                                    <button type="button" class="advice btn btn-primary btn-block">
+                                        <a href="{% url 'account:seeker' %}"> As an Advice seekers</a>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

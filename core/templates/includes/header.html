@@ -1,0 +1,45 @@
+{% load static %}
+<header>
+    <nav class="nav flex-row">
+        <div class="nav-menu">
+            <div class="nav-brand">
+                <a style="display: inline;" href="{% url 'core:index' %}"><img class="logo"
+                        src="{% static 'images/logo.png' %}" alt="Logo"></a>
+            </div>
+        </div>
+        <div class="toggle-collapse">
+            <div class="toggle-icons text-black">
+                <!--<span><i class="fas fa-bars"></i></span>-->
+                <span class="icon"></span>
+            </div>
+        </div>
+        <div>
+            <ul class="nav-items flex-row">
+                <li class="nav-link">
+                    <a href="#" class="text-black">About</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#" class="text-black">More on us</a>
+                </li>
+                <li class="nav-link">
+                    <a href="#" class="text-black">How it works</a>
+                </li>
+
+            </ul>
+        </div>
+        <div>
+            <ul class="nav-items flex-row">
+
+                <li class="nav-link " class="mobile-sign" style="padding: 1.3rem 1rem;">
+                    <b> <a style="font-weight: 700;" href="{% url 'account:login' %}" class="sign">Sign in</a></b>
+                </li>
+                <li class="nav-link" class="mobile-sign" style="padding: 1.3rem 1rem;">
+                    <b> <a href="{% url 'account:register' %}" class="sign">Sign up</a> </b>
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+</header>

@@ -1,0 +1,60 @@
+{% extends 'base2.html' %}
+
+{% load static %}
+
+{% block title %}Sign In{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="signin-section">
+    <div class="container ">
+        <div class="row justify-content-md-center">
+            <div class="card-wrapper">
+
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title " style="text-align: center;">Sign In</h4>
+                        <form method="POST" class="my-login-validation" novalidate="">
+
+
+                            <div class="form-group">
+                                <label for="email">E-Mail </label>
+                                <input id="email" type="email" class="form-control" name="email" required>
+                                <div class="invalid-feedback">
+                                    Your email is invalid
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" type="password" class="form-control" name="password" required>
+                                <div class="invalid-feedback">
+                                    Password is required
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-group m-0">
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Sign In
+                                </button>
+                            </div>
+                            <p style="text-align: center; margin-top:21px;">
+                                or
+                            </p>
+                            <div class="mt-4 text-center">
+                                <a id="signup" href="index.html">Sign up</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
