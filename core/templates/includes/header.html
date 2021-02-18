@@ -28,6 +28,16 @@
             </ul>
         </div>
         <div>
+            {% if request.user.is_authenticated %}
+            <div>
+                <a href="{% url 'account:profile' request.user.pk%}">
+                <button class="profile-img"><img width="24px" height="24px" style="margin-right: 11px;"
+                        src="{% static 'images/user.png' %}" alt="">{{ request.user.full_name }}</button>
+                    </a>
+            </div>
+
+            
+            {% else %}
             <ul class="nav-items flex-row">
 
                 <li class="nav-link " class="mobile-sign" style="padding: 1.3rem 1rem;">
@@ -38,6 +48,9 @@
                 </li>
 
             </ul>
+            
+
+            {% endif %}
 
         </div>
     </nav>

@@ -135,32 +135,33 @@
                     <h2 class="card-title " style="text-align: center;">Profile</h2>
 
                     <div class="card-body ">
-                        <form method="POST" class="my-login-validation" novalidate="">
-
+                        <form method="POST" class="my-login-validation" novalidate="" action=""
+                            enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{form.non_field_error}}
 
                             <div class="form-group">
                                 <label for="email" style="color: #595959;">Email </label>
-                                <input id="email" type="email" class="form-control" name="email"
-                                    placeholder="name@gmail.com" required>
+                                {{form.email}}
+                                {{form.email.errors}}
                                 <div class="invalid-feedback">
                                     Your email is invalid
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="password" style="color: #595959;">Password</label>
-                                <input id="password" type="password" class="form-control" placeholder="Password"
-                                    name="password" required>
+                                <label for="fullname">Username*</label>
+                                {{form.username}}
+                                {{form.username.errors}}
                                 <div class="invalid-feedback">
-                                    Password is required
+                                    Your fullname is invalid
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="fullname" style="color: #595959;">Full Name*</label>
-                                <input id="fullname" type="text" class="form-control" name="fullname"
-                                    placeholder="Full Name" required>
-                                <span class="fas fa-pencil-alt pen"> </span>
+                                <label for="fullname">Full Name*</label>
+                                {{form.full_name}}
+                                {{form.full_name.errors}}
                                 <div class="invalid-feedback">
                                     Your fullname is invalid
                                 </div>
@@ -176,13 +177,11 @@
 
                             </div>
                             <div class="form-group">
-                                <label for="fullname" style="color: #595959;">Company*</label>
-                                <input id="fullname" type="text" class="form-control" name="fullname"
-                                    placeholder="Company" required>
-                                <span class="fas fa-pencil-alt pen"> </span>
-
+                                <label for="age">Company</label>
+                                {{form.company}}
+                                {{form.company.errors}}
                                 <div class="invalid-feedback">
-                                    Your company is invalid
+                                    Age is required
                                 </div>
                             </div>
 
@@ -199,30 +198,28 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="phone" style="color: #595959;">Enter your phone number:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="12345678910"
-                                    pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
-                                <span class="fas fa-pencil-alt pen"> </span>
-
-                            </div>
+                                <label for="phone">Enter your phone number:</label>
+                                  {{form.number}}
+                                  {{form.number.errors}}
+                              </div>
                             <div class="form-group" id="buttons">
                                 <p style="color: #595959;">Profile Picture</p> <span
                                     class=" btn btn-primary btn-file upload">
-                                    Add photo<input type="file">
+                                    Add photo{{form.profile_pic}}
+                                    {{form.profile_pic.errors}}
 
                                 </span>
                                 <a href="" class="btn" id="delete" style="color: white;"> Delete</a>
 
                             </div>
                             <div class="form-group m-0">
-                                <button class="save-btn btn  btn-primary btn-block">
-                                    Save changes
-                                </button>
+                                <input type="submit" value="Save changes" class="save-btn btn  btn-primary btn-block">
 
                             </div>
                             <hr>
-                            <button class="sign-btn  btn btn-primary btn-block">Sign out</button>
+                            <a href="{% url 'account:log-out' %}"><p class="sign-btn  btn btn-primary btn-block">Sign out</p></a>
                         </form>
+                        
                     </div>
                 </div>
 

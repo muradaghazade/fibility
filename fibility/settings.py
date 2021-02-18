@@ -129,6 +129,10 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'account.User'
 
+LOGIN_REDIRECT_URL = reverse_lazy('core:index')
+
+LOGOUT_REDIRECT_URL = reverse_lazy('account:login')
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 

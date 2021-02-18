@@ -112,3 +112,24 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['email', 'password']
+
+class UpdateProfileForm(forms.ModelForm):
+
+    profile_pic = forms.FileField(
+        widget = forms.FileInput(
+            attrs={
+                'id': "pic"
+            }))
+
+    class Meta:
+        model = User
+        fields = ['full_name', 'username', 'email', 'company', 'number', 'profile_pic']
+
+        widgets = {
+            'full_name': forms.TextInput(attrs={'id': 'full_name', 'placeholder': 'First Name',  'class': 'form-inputs'}),
+            'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Your Username',  'class': 'form-inputs'}),
+            'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'Bio',  'class': 'form-inputs'}),
+            #region
+            'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
+            'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
+        }
