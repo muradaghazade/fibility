@@ -211,29 +211,51 @@
           <h2 class="card-title " style="text-align: center;">Financial Advisor</h2>
 
           <div class="card-body">
-            <form method="POST" class="my-login-validation" novalidate="">
+            <form method="POST" class="my-login-validation" novalidate="" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{form.non_field_error}}
 
 
               <div class="form-group">
                 <label for="email">E-Mail </label>
-                <input id="email" type="email" class="form-control" name="email" placeholder="name@gmail.com" required>
-                <div class="invalid-feedback">
+                {{form.email}}
+                {{form.email.errors}}
+                <!-- <div class="invalid-feedback">
                   Your email is invalid
-                </div>
+                </div> -->
               </div>
 
               <div class="form-group">
                 <label for="password">Password</label>
-                <input id="password" type="password" class="form-control" name="password" placeholder="Password"
-                  required>
+                  {{form.password1}}
+                  {{form.password1.errors}}
                 <div class="invalid-feedback">
                   Password is required
                 </div>
               </div>
 
               <div class="form-group">
+                <label for="password">Password</label>
+                  {{form.password2}}
+                  {{form.password2.errors}}
+                <div class="invalid-feedback">
+                  Password is required
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="fullname">Username*</label>
+                {{form.username}}
+                {{form.username.errors}}
+                <div class="invalid-feedback">
+                  Your fullname is invalid
+                </div>
+              </div>
+
+              <div class="form-group">
                 <label for="fullname">Full Name*</label>
-                <input id="fullname" type="text" class="form-control" name="fullname" placeholder="Full Name" required>
+                {{form.full_name}}
+                {{form.full_name.errors}}
                 <div class="invalid-feedback">
                   Your fullname is invalid
                 </div>
@@ -249,7 +271,8 @@
               </div>
               <div class="form-group">
                 <label for="age">Company</label>
-                <input id="age" type="number" class="form-control" name="age" placeholder="Age" required>
+                {{form.company}}
+                {{form.company.errors}}
                 <div class="invalid-feedback">
                   Age is required
                 </div>
@@ -268,8 +291,8 @@
 
               <div class="form-group">
                 <label for="occupation">Occupation*</label>
-                <input id="occupation" type="text" placeholder="Occupation" class="form-control" name="occupation"
-                  required>
+                  {{form.occupation}}
+                  {{form.occupation.errors}}
                 <div class="invalid-feedback">
                   Your Occupation is invalid
                 </div>
@@ -293,8 +316,9 @@
                     <div class="value left">
                       0</div>
 
-                    <input type="range" min="0" max="100000" value="60000" data-orientation="vertical" id="myRange"
-                      steps="1">
+                    
+                      {{form.salary}}
+                      {{form.salary.errors}}
                     <div class="value right" style="margin-left:0px">
                       100000</div>
 
@@ -308,22 +332,24 @@
 
               <div class="form-group">
                 <label for="phone">Enter your phone number:</label>
-                <input type="tel" placeholder="012 345 678 910" class="form-control" id="phone" name="phone"
-                  pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+                  {{form.number}}
+                  {{form.number.errors}}
               </div>
               <div class="form-group" id="buttons">
                 <p style="color: #595959;">Profile Picture</p> <span class=" btn btn-primary btn-file upload">
-                  Add photo<input type="file">
-
+                  Add photo
+                      {{form.profile_pic}}
+                      {{form.profile_pic.errors}}
                 </span>
                 <a href="" class="btn" id="delete" style="color: white;"> Delete</a>
 
               </div>
 
               <div class="form-group m-0">
-                <button class="save-btn btn  btn-primary btn-block">
+                <!-- <button class="save-btn btn  btn-primary btn-block">
                   Save
-                </button>
+                </button> -->
+                <input type="submit" value="Save" class="save-btn btn  btn-primary btn-block">
               </div>
 
             </form>

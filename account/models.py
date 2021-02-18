@@ -7,10 +7,10 @@ class User(AbstractUser):
     # region
     age = models.IntegerField(null=True)
     is_employed = models.BooleanField(default=False)
-    occupation = models.CharField(max_length=255)
+    occupation = models.CharField(max_length=255, null=True)
     salary = models.IntegerField(null=True)
     number = models.CharField(max_length=100, null=True)
-    company = models.CharField(max_length=255)
+    company = models.CharField(max_length=255, null=True)
     profile_pic = models.ImageField(upload_to='images')
     is_advisor = models.BooleanField(default=False)
     is_seeker = models.BooleanField(default=False)
