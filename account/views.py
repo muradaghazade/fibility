@@ -18,12 +18,21 @@ class AdvisorView(CreateView):
     form_class = AdvisorRegisterForm
     success_url = reverse_lazy('account:login')
 
+    def form_valid(self, form):
+        form.instance.is_advisor = True
+        form.save()
+        return super().form_valid(form)
+
 class SeekerView(CreateView):
     model = User
     template_name = 'advice-seekers.html'
     form_class = SeekerRegisterForm
     success_url = reverse_lazy('account:login')
 
+    def form_valid(self, form):
+        form.instance.is_seeker = True
+        form.save()
+        return super().form_valid(form)
 
 
 class ProfileView(TemplateView):
