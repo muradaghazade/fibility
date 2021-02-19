@@ -41,6 +41,7 @@ FILE_UPLOAD_HANDLERS = ['django.core.files.uploadhandler.MemoryFileUploadHandler
 # Application definition
 
 INSTALLED_APPS = [
+    'fibility.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
