@@ -30,7 +30,7 @@
         <div>
             {% if request.user.is_authenticated %}
             <div>
-                <a href="{% url 'account:profile' request.user.pk%}">
+                <a href="{% url 'account:profile' request.user.slug%}">
                 <button class="profile-img"><img width="24px" height="24px" style="margin-right: 11px;"
                         src="{% static 'images/user.png' %}" alt="">{{ request.user.full_name }}</button>
                     </a>
