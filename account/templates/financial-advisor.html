@@ -261,12 +261,14 @@
                 </div>
               </div>
               <div><label for="sel1">Region*</label>
-                <select class="form-control" id="sel1" aria-placeholder="Region">
+                {{form.region}}
+                {{form.region.errors}}
+                <!-- <select class="form-control" id="sel1" aria-placeholder="Region">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
-                </select>
+                </select> -->
 
               </div>
               <div class="form-group">
@@ -276,15 +278,6 @@
                 <div class="invalid-feedback">
                   Age is required
                 </div>
-              </div>
-              <div><label for="sel1">Type of financial budget*</label>
-                <select class="form-control" id="sel1" aria-placeholder="Region">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
-
               </div>
 
 
@@ -298,12 +291,8 @@
                 </div>
               </div>
               <div class="form-group"><label for="sel1">Type of financial advice*</label>
-                <select class="form-control" id="sel1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                </select>
+                {{form.type_of_advice}}
+                {{form.type_of_advice.errors}}
 
               </div>
               <div class="form-group">
@@ -329,6 +318,7 @@
                 </div>
               </div>
 
+                  
 
               <div class="form-group">
                 <label for="phone">Enter your phone number:</label>

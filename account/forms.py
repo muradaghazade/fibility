@@ -29,18 +29,19 @@ class AdvisorRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username','full_name','email','password1','password2','occupation', 'salary', 'number', 'company', 'is_advisor', 'profile_pic')
+        fields = ('username','full_name','email','password1','password2','occupation', 'salary', 'number', 'company', 'is_advisor', 'profile_pic', 'region','type_of_advice')
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'fullname', 'placeholder': 'Full Name', 'class': 'form-control'}),
             'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Username', 'class': 'form-control'}),
-            # 'region': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Username', 'class': 'form-control'}),
+            'region': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
+            'type_of_advice': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'name@gmail.com', 'class': 'form-control'}),
             'is_employed': forms.CheckboxInput(attrs={'id': 'is_employed'}),
             'is_advisor': forms.CheckboxInput(attrs={'id': 'is_advisor', 'checked':'True'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-control'}),
+            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs'}),
             'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -69,19 +70,20 @@ class SeekerRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username','full_name','email','password1','password2', 'is_employed', 'occupation', 'salary', 'number', 'is_seeker', 'profile_pic', 'age')
+        fields = ('username','full_name','email','password1','password2', 'is_employed', 'occupation', 'salary', 'number', 'is_seeker', 'profile_pic', 'age', 'region', 'type_of_advice')
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'fullname', 'placeholder': 'Full Name', 'class': 'form-control'}),
             'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Username', 'class': 'form-control'}),
-            # 'region': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Username', 'class': 'form-control'}),
+            'region': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
+            'type_of_advice': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'name@gmail.com', 'class': 'form-control'}),
             'is_employed': forms.CheckboxInput(attrs={'id': 'radio-yes', 'type': 'radio'}),
             'is_seeker': forms.CheckboxInput(attrs={'id': 'is_seeker', 'checked': 'True'}),
             'age': forms.NumberInput(attrs={'id': 'number', 'placeholder': 'Age', 'class': 'form-control'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-control'}),
+            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -129,7 +131,7 @@ class UpdateProfileForm(forms.ModelForm):
             'full_name': forms.TextInput(attrs={'id': 'full_name', 'placeholder': 'First Name',  'class': 'form-control'}),
             'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Your Username',  'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'Bio',  'class': 'form-control'}),
-            #region
+            'region': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
             'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
         }
