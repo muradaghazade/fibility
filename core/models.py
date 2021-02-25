@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class AboutUsText(models.Model):
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add=True)
