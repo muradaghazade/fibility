@@ -26,7 +26,14 @@ class MatchedView(ListView):
         return context
 
     def get_queryset(self):
-        queryset = User.objects.filter(is_advisor=True)
+        salary = self.request.GET.get('salary')
+        print(salary, "shhh")
+        queryset = User.objects.filter(is_advisor=True).filter(salary=self.request.user.salary)
+
+        if salary:
+            queryset = User.objects.filter(is_advisor=True).filter(salary=salary)
+        print(queryset)
+
         return queryset
 
 class MessageAdvisorView(FormMixin, DetailView):

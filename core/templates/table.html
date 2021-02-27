@@ -12,19 +12,21 @@
 {% block content %}
 <body class="my-login-page">
     <section id="cover" class="min-vh-100">
-        <form   action="Get" id="cover-caption">
           
             <div class="container">
                 <div class="row text-white">
 
                     <div class="col-12">
                         <h1 style="margin-bottom: 64px; text-align: left; color: black;">Your match results</h1>
-                 <p style="display: inline-block; color: #737B7D;">Your annual salary range 0-100k :</p>
-                 <input class="form-control" type="text" placeholder="${{request.user.salary}}">
-                 <button class="btn apply">Apply</button>
+                        <form action="{% url 'core:matched-advisors' %}" method="GET">
+                            <p style="display: inline-block; color: #737B7D;">Your annual salary range 0-100k :</p>
+                 <input class="form-control" type="text" name="salary" placeholder="${{request.user.salary}}" value="{{request.GET.salary}}">
+                 <input class="btn apply" type="submit" value="Apply">
+                        </form>
+                 
                     </div>
                     {% for advisor in matched_advisors %}
-                    {% if advisor.salary == request.user.salary and advisor.state == request.user.state %}
+                    {% if advisor.state == request.user.state %}
                     <div class="col-md-6 col-xs-12" style="margin-bottom:27px; margin-top: 44px;">
                         <div class="card p-3">
                             <div class="d-flex align-items-center">
@@ -66,7 +68,6 @@
                   
                 </div>
             </div>
-        </form>
     </section>
     <!-- <section class="signin-section">
     <div class="container ">
