@@ -17,7 +17,7 @@ class AdvisorView(CreateView):
     model = User
     template_name = 'financial-advisor.html'
     form_class = AdvisorRegisterForm
-    success_url = reverse_lazy('account:login')
+    success_url = reverse_lazy('core:congratulations')
 
     def form_valid(self, form):
         form.instance.is_advisor = True
@@ -28,7 +28,7 @@ class SeekerView(CreateView):
     model = User
     template_name = 'advice-seekers.html'
     form_class = SeekerRegisterForm
-    success_url = reverse_lazy('account:login')
+    success_url = reverse_lazy('core:congratulations')
 
     def form_valid(self, form):
         form.instance.is_seeker = True

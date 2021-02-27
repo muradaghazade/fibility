@@ -24,7 +24,7 @@
                  <button class="btn apply">Apply</button>
                     </div>
                     {% for advisor in matched_advisors %}
-                    {% if advisor.salary == request.user.salary %}
+                    {% if advisor.salary == request.user.salary and advisor.state == request.user.state %}
                     <div class="col-md-6 col-xs-12" style="margin-bottom:27px; margin-top: 44px;">
                         <div class="card p-3">
                             <div class="d-flex align-items-center">
