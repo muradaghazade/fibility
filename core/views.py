@@ -28,7 +28,7 @@ class MatchedView(ListView):
     def get_queryset(self):
         salary = self.request.GET.get('salary')
         print(salary, "shhh")
-        queryset = User.objects.filter(is_advisor=True).filter(salary=self.request.user.salary)
+        queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=self.request.user.salary).filter(end_budget__budget__gte=self.request.user.salary)
 
         if salary:
             queryset = User.objects.filter(is_advisor=True).filter(salary=salary)

@@ -34,8 +34,8 @@
                                     <h4 class="mb-0 mt-0" style="color: #737B7D; text-align: left; font-size: 18px!important;">{{ advisor.full_name }}</h4>
                                     <div class=" mt-2 d-flex justify-content-between rounded text-white ">
                                         <p class="card-text"
-                                style="width:95px; text-align:left; display: inline-block; background-color: #9ff0cb; color: #16613f ;">
-                                ${{ advisor.salary }}
+                                style="width:109px; text-align:left; display: inline-block; background-color: #9ff0cb; color: #16613f ;">
+                                ${{ advisor.start_budget }} - ${{advisor.end_budget}}
                             </p>
                             <a href="{% url 'core:message-advisor' advisor.slug %}">Contact with me</a>
                                     </div>
