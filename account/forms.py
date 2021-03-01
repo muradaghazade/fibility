@@ -29,12 +29,14 @@ class AdvisorRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username','full_name','email','password1','password2','occupation', 'salary', 'number', 'is_advisor', 'profile_pic', 'state')
+        fields = ('username','full_name','email','password1','password2','occupation', 'salary', 'number', 'is_advisor', 'profile_pic', 'state', 'start_budget', 'end_budget')
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'fullname', 'placeholder': 'Full Name', 'class': 'form-control'}),
             'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Username', 'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
+            'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
+            'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
             # 'type_of_advice': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'name@gmail.com', 'class': 'form-control'}),
             'is_employed': forms.CheckboxInput(attrs={'id': 'is_employed'}),
@@ -70,12 +72,14 @@ class SeekerRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username','full_name','email','password1','password2', 'is_employed', 'occupation', 'salary', 'number', 'is_seeker', 'profile_pic', 'age', 'state')
+        fields = ('username','full_name','email','password1','password2', 'is_employed', 'occupation', 'salary', 'number', 'is_seeker', 'profile_pic', 'age', 'state', 'start_budget', 'end_budget')
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'fullname', 'placeholder': 'Full Name', 'class': 'form-control'}),
             'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Username', 'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
+            'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
+            'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
             # 'type_of_advice': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'name@gmail.com', 'class': 'form-control'}),
             'is_employed': forms.CheckboxInput(attrs={'id': 'radio-yes', 'type': 'radio'}),
@@ -125,13 +129,15 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['full_name', 'username', 'email', 'number', 'profile_pic', 'state']
+        fields = ['full_name', 'username', 'email', 'number', 'profile_pic', 'state', 'start_budget', 'end_budget']
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'full_name', 'placeholder': 'First Name',  'class': 'form-control'}),
             'username': forms.TextInput(attrs={'id': 'username', 'placeholder': 'Your Username',  'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'Bio',  'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
+            'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
+            'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
         }

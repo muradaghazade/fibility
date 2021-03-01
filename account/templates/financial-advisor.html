@@ -237,7 +237,19 @@ input[type=range] {
                   Your Occupation is invalid
                 </div>
               </div>
+
               <div class="form-group">
+                <label for="occupation">Estimated budget range*</label>
+                <div style="display: flex;">
+                  {{form.start_budget}}
+                    {{form.start_budget.errors}}
+                    --
+                    {{form.end_budget}}
+                    {{form.end_budget.errors}}
+
+                </div>
+              </div>
+              <!-- <div class="form-group">
                 <label for="customRange2" class="form-label">Your salary range*</label>
                 <div class="range">
                   <div class="sliderValue">
@@ -254,11 +266,11 @@ input[type=range] {
                       100000</div>
 
 
-                  </div>
+                  </div> 
                   <p style="text-align: center;">Value: <span id="demo"></span></p>
 
                 </div>
-              </div>
+              </div>-->
 
                   
 
