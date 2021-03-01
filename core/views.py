@@ -31,7 +31,7 @@ class MatchedView(ListView):
         queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=self.request.user.salary).filter(end_budget__budget__gte=self.request.user.salary)
 
         if salary:
-            queryset = User.objects.filter(is_advisor=True).filter(salary=salary)
+            queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=salary).filter(end_budget__budget__gte=salary)
         print(queryset)
 
         return queryset
