@@ -8,6 +8,7 @@
 {% block title %} Fibility {% endblock %}
 
 {% block content %}
+
 <!-- Who we are section Start -->
 <section id="whoWeare">
   <div class="container">
@@ -21,10 +22,17 @@
           irrational ones.
         </p>
         {% if request.user.is_authenticated %}
-        <a href="{% url 'core:matched-advisors' %}">Match <img width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
+        <a href="{% url 'core:matched-advisors' %}">Match <img width="" height=""
+            src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
         {% else %}
-        <a href="{% url 'account:login' %}">Match <img width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
+        <a href="{% url 'account:login' %}">Match <img width="" height="" src="{% static 'images/Group 251.png' %}"
+            alt="arrow"></a>
         {% endif %}
+        <!-- <a href=""
+          style="max-width: 150px; height: 50px;  color: #162C9B; text-decoration: none; border: 1px solid #162C9B!important;"
+          class="d-flex flex-row justify-content-center align-items-center border"><span
+            style="margin-right: 10px;">Match</span>
+          <img class="pl-2" width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a> -->
       </div>
     </div>
   </div>
@@ -36,7 +44,7 @@
     <div class="row">
       <div class="col-md-6 left-w about-left">
         <h2>About Us</h2>
-        <p>{{aboutus.text}}
+        <p class="aboutus-text">{{aboutus.text}}
         </p>
       </div>
       <div class="col-md-6  about-right">
@@ -52,31 +60,39 @@
   <h3>
     How it works
   </h3>
-  <p>We help the world’s leading organizations follow their shipping</p>
+  <p style="text-align: center;">We help the world’s leading organizations follow their shipping</p>
   <div class="timeline">
     <div class="container-t left">
       <div class="content">
-        <img src="{% static 'images/1.png' %}" alt="">
-        <img class="time1" src="{% static 'images/one.png' %}" alt=""> <b style="color: #373F41;">Fill out five
-          questions</b>
-        <p>At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</p>
+        <div style="float: left;">
+          <img class="time1" src="{% static 'images/one.png' %}" alt="Photo">
+        </div>
+        <div class="text-work" style="margin-top: 20px; margin-left: 120px;">
+          <b style="color: #373F41;">Fill out five questions</b>
+        </div>
+
       </div>
     </div>
     <div class="container-t right">
       <div class="content">
-        <img src="{% static 'images/2.png' %}" alt="">
-        <img class="time1" src="{% static 'images/two.png' %}" alt="">
-        <b>Get matched with an advisor</b>
+        <div style="float: left;">
+          <img class="time1" src="{% static 'images/two.png' %}" alt="Photo">
+        </div>
+        <div class="text-work" style="margin-top: 20px; margin-left: 120px;">
+          <b style="color: #373F41;">Get matched with an advisor</b>
+        </div>
 
-        <p>At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</p>
       </div>
     </div>
     <div class="container-t left">
       <div class="content">
-        <img src="{% static 'images/3.png' %}" alt="">
-        <img class="time1" src="{% static 'images/three.png' %}" alt="">
-        <b>Receive our services for free</b>
-        <p>At eripuit signiferumque sea, vel ad mucius molestie, cu labitur iuvaret vulputate sed.</p>
+        <div style="float: left;">
+          <img class="time1" src="{% static 'images/three.png' %}" alt="Photo">
+        </div>
+        <div class="text-work" style="margin-top: 20px; margin-left: 120px;">
+          <b style="color: #373F41;">Receive our services</b>
+        </div>
+
       </div>
     </div>
 
@@ -86,11 +102,11 @@
 </section>
 <!-- Timeline section End -->
 <!-- More on us  section Start -->
-<section class="more">
+<section class="more" id="moreonus">
   <div class="container">
     <div class="row">
       <div clas="col-12">
-        <h2 id="more-on-us">More on us</h2>
+        <h2 id="more-on-us">Our why </h2>
         <p id="more-on-us-text">
           {{moreonus.text}}
         </p>
@@ -100,5 +116,4 @@
 
 </section>
 <!-- More on us section End -->
-
 {% endblock %}
