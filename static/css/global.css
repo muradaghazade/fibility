@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+.container {
+    width: 100% !important
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+.navbar
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap');
 :root{
     /* theme colors */
@@ -271,7 +279,6 @@ nav .toggle-collapse .toggle-icons i{
 	 background: #f1f5f8;
 }
  img {
-	 display: block;
 	 height: auto;
 }
 

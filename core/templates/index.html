@@ -22,17 +22,19 @@
           irrational ones.
         </p>
         {% if request.user.is_authenticated %}
-        <a href="{% url 'core:matched-advisors' %}">Match <img width="" height=""
-            src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
+        <a href="{% url 'core:matched-advisors' %}"
+        style="max-width: 150px; height: 50px;  color: #162C9B; text-decoration: none; border: 1px solid #162C9B!important;"
+        class="d-flex flex-row justify-content-center align-items-center border"><span
+          style="margin-right: 10px;">Match</span>
+        <img class="pl-2" width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
         {% else %}
-        <a href="{% url 'account:login' %}">Match <img width="" height="" src="{% static 'images/Group 251.png' %}"
-            alt="arrow"></a>
-        {% endif %}
-        <!-- <a href=""
+        <a href="{% url 'account:login' %}"
           style="max-width: 150px; height: 50px;  color: #162C9B; text-decoration: none; border: 1px solid #162C9B!important;"
           class="d-flex flex-row justify-content-center align-items-center border"><span
             style="margin-right: 10px;">Match</span>
-          <img class="pl-2" width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a> -->
+          <img class="pl-2" width="" height="" src="{% static 'images/Group 251.png' %}" alt="arrow"></a>
+        {% endif %}
+        
       </div>
     </div>
   </div>

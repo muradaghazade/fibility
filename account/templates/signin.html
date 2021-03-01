@@ -5,18 +5,26 @@
 {% block title %}Sign In{% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/login.css' %}">
+<style>
+    .container {
+	 max-width: 80rem;
+	 width: 100%;
+	 height: auto;
+	 padding: 0 2rem;
+	 margin: 0 auto;
+}
+</style>
+<link rel="stylesheet" href="{% static 'css/signin.css' %}">
 {% endblock %}
 
 {% block content %}
-<section class="signin-section">
-    <div class="container ">
-        <div class="row justify-content-md-center">
-            <div class="card-wrapper">
-
-                <div class="card fat">
-                    <div class="card-body">
-                        <h4 class="card-title " style="text-align: center;">Sign In</h4>
+<section id="cover" class="min-vh-100">
+    <div id="cover-caption">
+        <div class="container">
+            <div class="row text-white">
+                <div class="col-lg-12 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="display-4 py-2 text-truncate">Sign In</h1>
+                    <div class="px-2">
                         <form method="POST" class="my-login-validation" novalidate="">
                             {% csrf_token %}
                             {{form.non_field_error}}
@@ -65,9 +73,11 @@
                         </form>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
 </section>
+
+
+
 {% endblock %}

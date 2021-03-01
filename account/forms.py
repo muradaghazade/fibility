@@ -41,7 +41,7 @@ class AdvisorRegisterForm(UserCreationForm):
             'is_advisor': forms.CheckboxInput(attrs={'id': 'is_advisor', 'checked':'True'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs'}),
+            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs', "step": "1000"}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -83,7 +83,7 @@ class SeekerRegisterForm(UserCreationForm):
             'age': forms.NumberInput(attrs={'id': 'number', 'placeholder': 'Age', 'class': 'form-control'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs'}),
+            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs', "step": "1000"}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -133,5 +133,5 @@ class UpdateProfileForm(forms.ModelForm):
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'Bio',  'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
-            'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
+            'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
         }

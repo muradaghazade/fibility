@@ -4,14 +4,56 @@
 {% block title %} Financial Register {% endblock %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href="{% static 'css/table.css' %}">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 {% endblock %}
 
 {% block content %}
 <body class="my-login-page">
+
     <section id="cover" class="min-vh-100">
+          
+            <div class="container">
+                <div class="row text-white">
+
+                    <div class="col-12">
+                 <form action="{% url 'core:matched-advisors' %}" method="GET" style="display: flex;">
+                    <p style=" color: #737B7D; margin-top: 17px; margin-right: 5px;">Your annual salary range 0-100k :</p>
+         <input class="form-control" type="text" name="salary" placeholder="${{request.user.salary}}" value="{{request.GET.salary}}">
+         <input class="btn apply" type="submit" value="Apply" style="margin-left: 5px; width: 200px;">
+                </form>
+                    </div>
+                    {% for advisor in matched_advisors %}
+                    {% if advisor.state == request.user.state %}
+                    <div class="col-md-6 col-xs-12" style="margin-top: 44px;">
+                        <div class="card p-3">
+                            <div class="d-flex align-items-center">
+                                <div class="image"> <img src="{{advisor.profile_pic.url}}" class="rounded" width="51"> </div>
+                                <div class="ml-3 w-100">
+                                    <h4 class="mb-0 mt-0" style="color: #737B7D; text-align: left; font-size: 18px!important;">{{ advisor.full_name }}</h4>
+                                    <div class=" mt-2 d-flex justify-content-between rounded text-white ">
+                                        <p class="card-text"
+                                style="width:95px; text-align:left; display: inline-block; background-color: #9ff0cb; color: #16613f ;">
+                                ${{ advisor.salary }}
+                            </p>
+                            <a href="{% url 'core:message-advisor' advisor.slug %}">Contact with me</a>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                 
+                  
+                </div>
+            </div>
+    </section>
+
+
+    <!-- <section id="cover" class="min-vh-100">
           
             <div class="container">
                 <div class="row text-white">
@@ -47,28 +89,11 @@
                     </div>
                     {% endif %}
                     {% endfor %}
-                    <!-- <div class="col-md-6 col-xs-12" style="margin-top: 44px;">
-                        <div class="card p-3">
-                            <div class="d-flex align-items-center">
-                                <div class="image"> <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" class="rounded" width="51"> </div>
-                                <div class="ml-3 w-100">
-                                    <h4 class="mb-0 mt-0" style="color: black; text-align: left;">Jhone Smith</h4>
-                                    <div class="p-2 mt-2 d-flex justify-content-between rounded text-white ">
-                                        <p class="card-text"
-                                style="width:95px; text-align:left; display: inline-block; background-color: #9ff0cb; color: #6BCAA0 ;">
-                                $10k
-                            </p>
-                            <a href="#">Contact with me</a>
-                                    </div>
-                                  
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                    
                   
                 </div>
             </div>
-    </section>
+    </section> -->
     <!-- <section class="signin-section">
     <div class="container ">
       <div class="row justify-content-md-center">

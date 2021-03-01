@@ -6,6 +6,9 @@ body.my-login-page {
 	background-color: #fff5f2;
 	font-size: 14px;
 }
+footer {
+	max-width: 100% !important;
+}
 .btn{
     margin-top: 35px;
     padding:1rem 2rem;
@@ -106,4 +109,13 @@ body.my-login-page {
   }
 .signin-section{
     margin-bottom: 20px;
+	padding-top: 60px;
+}
+a:hover{
+	text-decoration: none;
+}
+footer{
+	max-width: 100%!important;
+	height: 100px;
+	padding-top: 20px;
 }

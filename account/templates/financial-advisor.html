@@ -10,6 +10,28 @@
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 
 <style>
+  .field{
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  footer {
+    margin-top: 400px;
+  }
+  .numb-1 {
+    margin: 20px;
+
+    float: left;
+  }
+
+  #usa {
+    float: left;
+    margin: 20px;
+  }
+
+  input[type="tel"] {
+    width: 70%;
+  }
+
   input[type="range"]:focus {
     border: none;
   }
@@ -46,6 +68,10 @@
     cursor: pointer;
   }
 
+  .right {
+    right: -63px;
+  }
+
   .radio-label:hover {
     background: #d9d9d9;
     color: #fff;
@@ -58,159 +84,97 @@
 
   }
 
-  .range {
-    height: 80px;
-    border-radius: 10px;
-    padding: 0 65px 0 45px;
-  }
-
-  .sliderValue {
-    position: relative;
-    width: 100%;
-  }
-
-  .sliderValue span {
-    position: absolute;
-    height: 45px;
-    width: 45px;
-    transform: translateX(-70%) scale(0);
-    font-weight: 500;
-    top: -40px;
-    line-height: 55px;
-    z-index: 2;
-    color: #fff;
-    transform-origin: bottom;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .sliderValue span.show {
-    transform: translateX(-70%) scale(1);
-  }
-
-  .sliderValue span:after {
-    position: absolute;
-    content: '';
-    height: 100%;
-    width: 100%;
-    background: #664AFF;
-    border: 3px solid #fff;
-    z-index: -1;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    border-bottom-left-radius: 50%;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-  }
-
-  .field {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    position: relative;
-  }
-
-  .field .value {
-    position: absolute;
-    font-size: 18px;
-    color: #595959;
-    font-weight: 600;
-  }
-
-  .field .value.left {
-    left: -32px;
-  }
-
-  .field .value.right {
-    right: -63px;
-  }
-
-  .range input[type='range'] {
-    overflow: hidden;
-    width: 200px;
+  input[type="range"] {
     -webkit-appearance: none;
-    background-color: #fff9db;
-    padding: 0px;
-  }
-
-  .range input[type='range']::-webkit-slider-runnable-track {
+    -moz-appearance: none;
+    width: 300px;
     height: 10px;
-    -webkit-appearance: none;
-    color: #2034a1;
-    margin-top: -1px;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
   }
 
-  .range input[type='range']::-webkit-slider-thumb {
+
+  /*Chrome thumb*/
+
+  input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background: #374ba5;
-    box-shadow: -200px 0 0 200px #f74343;
-    appearance: none;
-    width: 25px;
-    height: 25px;
+    -moz-appearance: none;
+    /*16x16px adjusted to be same as 14x14px on moz*/
+    height: 22px;
+    width: 18px;
+    background: #162c9b;
     border: none;
-    cursor: pointer;
+  }
+
+
+  /*Mozilla thumb*/
+
+  input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    height: 22px;
+    width: 18px;
   }
 
   /* range input{
-    -webkit-appearance: none;
-    width: 100%;
-    height: 9px;
-    background: #ddd;
-    outline: none;
-    border: none;
-    z-index: 2222;
-  }
-  .range input::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #162c9b;
-    cursor: pointer;
-  }
-  .range input::-moz-range-thumb{
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #162c9b;
-    cursor: pointer;
-  }
-  input[type=range] {
-        -webkit-appearance: none;
-        -moz-apperance: none;
-        height: 9px;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 9px;
+  background: #ddd;
+  outline: none;
+  border: none;
+  z-index: 2222;
+}
+.range input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #162c9b;
+  cursor: pointer;
+}
+.range input::-moz-range-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #162c9b;
+  cursor: pointer;
+}
+input[type=range] {
+      -webkit-appearance: none;
+      -moz-apperance: none;
+      height: 9px;
 
-        background-image: -webkit-gradient(linear,
-            left top, 
-            right top, 
-            color-stop(60%, #ff5126),
-            color-stop(60%, #eeeeee));
+      background-image: -webkit-gradient(linear,
+          left top, 
+          right top, 
+          color-stop(60%, #ff5126),
+          color-stop(60%, #eeeeee));
 
-        background-image: -moz-linear-gradient(left center,
-            #ff5126 0%, #ff5126 60%,
-            #eeeeee 60%, #eeeeee 100%);
-    }
-  .range input::-webkit-progress-value {
-    background: #ff6e4a; 
-    content: '';
-    pointer-events: none;
-  } */
+      background-image: -moz-linear-gradient(left center,
+          #ff5126 0%, #ff5126 60%,
+          #eeeeee 60%, #eeeeee 100%);
+  }
+.range input::-webkit-progress-value {
+  background: #ff6e4a; 
+  content: '';
+  pointer-events: none;
+} */
 </style>
 {% endblock %}
 
 {% block content %}
-
-<section class="signin-section">
-  <div class="container ">
-    <div class="row justify-content-md-center">
-      <div class="card-wrapper">
-
-        <div class="card fat">
-          <h2 class="card-title " style="text-align: center;">Financial Advisor</h2>
-
-          <div class="card-body">
+<section id="cover" class="min-vh-100">
+  <div id="cover-caption">
+    <div class="container">
+      <div class="row text-white">
+        <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+          <h1 class="display-4 py-2 " style="color: black;
+          font-weight: 400;
+          font-size: 50px;">Financial Advisor</h1>
+          <div class="px-2">
             <form method="POST" class="my-login-validation" novalidate="" action="" enctype="multipart/form-data">
               {% csrf_token %}
               {{form.non_field_error}}
@@ -220,9 +184,6 @@
                 <label for="email">E-Mail </label>
                 {{form.email}}
                 {{form.email.errors}}
-                <!-- <div class="invalid-feedback">
-                  Your email is invalid
-                </div> -->
               </div>
 
               <div class="form-group">
@@ -302,7 +263,9 @@
                   
 
               <div class="form-group">
-                <label for="phone">Enter your phone number:</label>
+                <label for="phone">Enter your phone number:</label> <br>
+  <img id="usa" src="{% static 'images/US.png' %}" alt="USA">
+  <p class="numb-1">+1 </p> 
                   {{form.number}}
                   {{form.number.errors}}
               </div>
@@ -326,17 +289,130 @@
             </form>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
 
 {% block js %}
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.7/js/intlTelInput.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> 
+<script>
+  $("#profileImage").click(function(e) {
+  $("#imageUpload").click();
+});
+
+function fasterPreview( uploader ) {
+  if ( uploader.files && uploader.files[0] ){
+        $('#profileImage').attr('src', 
+           window.URL.createObjectURL(uploader.files[0]) );
+  }
+}
+
+$("#imageUpload").change(function(){
+  fasterPreview( this );
+});
+
+        const burgerMenu = document.getElementById("burger");
+const navbarMenu = document.getElementById("menu");
+
+// Responsive Navbar Toggle
+burgerMenu.addEventListener("click", function () {
+navbarMenu.classList.toggle("active");
+burgerMenu.classList.toggle("active");
+});
+  function isOlderEdgeOrIE() {
+    return (
+      window.navigator.userAgent.indexOf("MSIE ") > -1 ||
+      !!navigator.userAgent.match(/Trident.*rv\:11\./) ||
+      window.navigator.userAgent.indexOf("Edge") > -1
+    );
+  }
+
+  function valueTotalRatio(value, min, max) {
+    return ((value - min) / (max - min)).toFixed(2);
+  }
+
+  function getLinearGradientCSS(ratio, leftColor, rightColor) {
+    return [
+      '-webkit-gradient(',
+      'linear, ',
+      'left top, ',
+      'right top, ',
+      'color-stop(' + ratio + ', ' + leftColor + '), ',
+      'color-stop(' + ratio + ', ' + rightColor + ')',
+      ')'
+    ].join('');
+  }
+
+  function updateRangeEl(rangeEl) {
+    var ratio = valueTotalRatio(rangeEl.value, rangeEl.min, rangeEl.max);
+
+    rangeEl.style.backgroundImage = getLinearGradientCSS(ratio, '#ff5126', '#eeeeee');
+  }
+
+  function initRangeEl() {
+    var rangeEl = document.querySelector('input[type=range]');
+    var textEl = document.querySelector('input[type=text]');
+
+    /**
+     * IE/Older Edge FIX
+     * On IE/Older Edge the height of the <input type="range" />
+     * is the whole element as oposed to Chrome/Moz
+     * where the height is applied to the track.
+     *
+     */
+    if (isOlderEdgeOrIE()) {
+      rangeEl.style.height = "20px";
+      // IE 11/10 fires change instead of input
+      // https://stackoverflow.com/a/50887531/3528132
+      rangeEl.addEventListener("change", function (e) {
+        textEl.value = e.target.value;
+      });
+      rangeEl.addEventListener("input", function (e) {
+        textEl.value = e.target.value;
+      });
+    } else {
+      updateRangeEl(rangeEl);
+      rangeEl.addEventListener("input", function (e) {
+        updateRangeEl(e.target);
+        textEl.value = e.target.value;
+      });
+    }
+  }
+
+  initRangeEl();
+
+
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("demo");
+  output.innerHTML = slider.value;
+
+  slider.oninput = function () {
+    output.innerHTML = this.value;
+  }
+
+</script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+  crossorigin="anonymous"></script>
+<script src="{% static 'js/login.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 <script>
   //       $("input[type=range]").mousemove(function (e) {

@@ -1,9 +1,8 @@
-const toggleCollapse = document.querySelector('.toggle-collapse span');
-const nav = document.querySelector('.nav');
+const burgerMenu = document.getElementById("burger");
+    const navbarMenu = document.getElementById("menu");
 
-
-// onclick event on toggle Collapse span tag
-toggleCollapse.onclick = (e) => {
-    nav.classList.toggle("collapse");
-    e.target.classList.toggle("toggle-click");
-}
+    // Responsive Navbar Toggle
+    burgerMenu.addEventListener("click", function () {
+      navbarMenu.classList.toggle("active");
+      burgerMenu.classList.toggle("active");
+    });

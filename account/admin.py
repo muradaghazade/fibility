@@ -1,5 +1,5 @@
 from django.contrib import admin
-from account.models import User, Message, State
+from account.models import User, Message, State, StartBudget, EndBudget
 from django.contrib.auth.models import Group
 from django.forms import ModelForm
 
@@ -12,5 +12,5 @@ class TheUserAdmin(admin.ModelAdmin):
     search_fields = ('email',)
 
 admin.site.register(User, TheUserAdmin)
-admin.site.register([Message, State, ])
+admin.site.register([Message, State, StartBudget, EndBudget, ])
 admin.site.unregister([Group, ])

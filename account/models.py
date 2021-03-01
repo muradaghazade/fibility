@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 class User(AbstractUser):
     email = models.EmailField(('email adress'), unique=True, null=True)
     full_name = models.CharField(max_length=100)
-    age = models.IntegerField(null=True)
+    age = models.IntegerField(null=True, blank=True)
     is_employed = models.BooleanField(default=False)
     occupation = models.CharField(max_length=255, null=True)
     salary = models.IntegerField(null=True)
@@ -16,6 +16,8 @@ class User(AbstractUser):
     is_seeker = models.BooleanField(default=False)
     slug = models.SlugField(max_length=255, null=True, blank=True)
     state = models.ForeignKey("State", on_delete=models.CASCADE, db_index=True, related_name='message', null=True)
+    start_budget = models.ForeignKey("StartBudget", on_delete=models.CASCADE, db_index=True, related_name='start_user', null=True, blank=True)
+    end_budget = models.ForeignKey("EndBudget", on_delete=models.CASCADE, db_index=True, related_name='end_user', null=True, blank=True)
 
     class Meta:
         verbose_name = 'User'
@@ -56,6 +58,30 @@ class State(models.Model):
     class Meta:
         verbose_name = 'State'
         verbose_name_plural = 'States'
+
+class StartBudget(models.Model):
+    budget = models.IntegerField(null=True)
+    added_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.budget}'
+
+    class Meta:
+        verbose_name = 'Start Budget'
+        verbose_name_plural = 'Start Budgets'
+
+class EndBudget(models.Model):
+    budget = models.IntegerField(null=True)
+    added_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.budget}'
+
+    class Meta:
+        verbose_name = 'End Budget'
+        verbose_name_plural = 'End Budgets'
 
 # class TypeOfAdvice(models.Model):
 #     title = models.CharField(max_length=255, null=True)

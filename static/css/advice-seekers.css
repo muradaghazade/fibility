@@ -1,7 +1,18 @@
 html,body {
 	height: 100%;
 }
+p{
+    color: black;
+}
 
+footer{
+
+    max-width: 100% !important;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    margin: auto;
+  }
 body.my-login-page {
 	background-color: #fff5f2;
 	font-size: 14px;
@@ -28,7 +39,12 @@ body.my-login-page {
 	position: relative;
 	z-index: 1;
 }
-
+nav ul li a:hover{
+  text-decoration: none!important;
+}
+footer ul li a:hover {
+    text-decoration: none !important;
+}
 .my-login-page .brand img {
 	width: 100%;
 }
@@ -40,7 +56,7 @@ body.my-login-page {
     
 }
 .my-login-page .card-wrapper {
-    width: 60%;
+    width: 400px;
     height: 100% !important;
 }
 .my-login-page .card {
@@ -62,6 +78,7 @@ body.my-login-page {
 
 .my-login-page .form-group label {
 	width: 100%;
+    text-align: left;
 }
 
 .my-login-page .btn.btn-block {
@@ -110,21 +127,66 @@ label{
 input{
     margin-top: 8px!important;
 }
-
+#delete{
+    display: inline-block;
+}
+#delete{
+    background-color: #162c9b;
+    color: white;
+    padding: 11px 16px;
+    max-width: 203px;
+    }
+.upload{
+border: none;
+}
 @media only screen and (min-width: 768px) {
 
 	.form-group{
 		width: 431px!important;
 
 	}
+    /* #myRange{
+        width: 300px!important; 
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+       } */
+  /* .right{
+      margin-right: 10px;
+  } */
 	}
-	@media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 768px) {
+
+      
+        #myRange{
+            width: 250px!important; 
+            /* margin-left: 0px !important;
+            margin-right: 0px !important; */
+           }
+      /* .right{
+          margin-right: 10px;
+      } */
+        }
+	@media only screen and (min-width:370px) and (max-width: 425px) {
 
 		.form-group{
 		 
 			width: 100%!important;
 		}
+        #myRange{
+            width:200px !important;
+            margin-left: 40px !important;
+    margin-right: 20px !important;
+        }
 		}
+        @media only screen and (max-width: 370px) {
+
+           
+            #myRange{
+                width:150px !important;
+                margin-left: 20px !important;
+        margin-right: 20px !important;
+            }
+            }
 		.form-control{
 			border-radius: 0px;
 			height: 37px !important;
@@ -145,6 +207,7 @@ padding: 0px;
 
 		
 		.save-btn{
+            border-color: #162c9b;
 			color: #162c9b!important;
 			background-color: white!important;
 			margin-top: 35px!important;
@@ -154,3 +217,74 @@ padding: 0px;
 			max-width: 431px;
 
 		}
+
+
+		.sr-only{
+            width: 100%;
+            color: rgb(80, 78, 78);
+            text-align: left;
+        }
+        footer{
+            display: flex;
+padding-top: 66px;            
+        }
+        .form-group{
+            margin-bottom: 22px;
+        }
+        #cover {
+    padding-top: 66px;
+    background-color: #fff5f2;
+    background-size: cover;
+    /* height: 100%; */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* max-width: 800px; */
+    justify-content: center;
+}
+
+#cover-caption {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    height: 600px;
+    margin-bottom:200px;
+}
+
+/* only used for background overlay not needed for centering */
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: -1;
+    color: black;
+}
+input{
+    border-radius: 0px!important;
+}
+h1,p{
+    color: black;
+}
+/* .btn{
+    margin-top: 35px;
+    padding:10px 10px;
+    background-color: #162c9b !important;
+    color: white;
+    width: 100%;
+    border-radius: 0px!important;
+} */
+#signup{
+    text-decoration: none;
+    color: #162c9b;
+    font-weight: bold;
+    margin-bottom: 100px;
+}
+h1{
+    margin-top: 78px;
+}
