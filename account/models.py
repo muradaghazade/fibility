@@ -9,7 +9,7 @@ class User(AbstractUser):
     age = models.IntegerField(null=True, blank=True)
     is_employed = models.BooleanField(default=False)
     occupation = models.CharField(max_length=255, null=True)
-    salary = models.IntegerField(null=True, blank=True)
+    salary = models.IntegerField(('Amount'),null=True, blank=True)
     number = models.CharField(max_length=100, null=True)
     profile_pic = models.ImageField(upload_to='images')
     is_advisor = models.BooleanField(default=False)

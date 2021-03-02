@@ -56,6 +56,7 @@
                                     Your fullname is invalid
                                 </div>
                             </div>
+                            {% if request.user.is_seeker %}
                             <div class="form-group">
                                 <label for="customRange2" class="form-label">Your budget*</label>
                 
@@ -64,7 +65,19 @@
                 
                 
                                 </div>
+                            {% else %}
+                            <div class="form-group">
+                                <label for="occupation">Estimated budget range*</label>
+                                <div style="display: flex;">
+                                  {{form.start_budget}}
+                                    {{form.start_budget.errors}}
+                                    --
+                                    {{form.end_budget}}
+                                    {{form.end_budget.errors}}
+                
+                                </div>
                               </div>
+                              {% endif %}
 
                             <div class="form-group">
                                 <label for="phone">Enter your phone number:</label> <br>

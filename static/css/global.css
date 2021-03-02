@@ -7,6 +7,16 @@
     width: 100% !important
 }
 
+a {
+    color: white;
+    text-decoration: none !important;
+}
+
+.signup:hover {
+    color: white !important;
+    text-decoration: none !important;
+}
+
 #end-budget {
     width: 50%;
 }

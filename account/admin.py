@@ -7,7 +7,7 @@ from django.forms import ModelForm
 # @admin.register(User, Region, TypeOfAdvice)
 class TheUserAdmin(admin.ModelAdmin):
     # model = User
-    list_display = ('username', 'salary', 'age')
+    list_display = ('username', 'salary', 'age', 'is_advisor', 'is_seeker')
     ordering = ('-id',)
     search_fields = ('email',)
 
