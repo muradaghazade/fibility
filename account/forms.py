@@ -43,7 +43,7 @@ class AdvisorRegisterForm(UserCreationForm):
             'is_advisor': forms.CheckboxInput(attrs={'id': 'is_advisor', 'checked':'True'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs', "step": "1000"}),
+            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Salary', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -87,7 +87,7 @@ class SeekerRegisterForm(UserCreationForm):
             'age': forms.NumberInput(attrs={'id': 'number', 'placeholder': 'Age', 'class': 'form-control'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'type': 'range', 'min':'0', 'max': '100000','id': 'myRange', 'placeholder': 'salary', 'class': 'form-inputs', "step": "1000"}),
+            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Budget', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -129,7 +129,7 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['full_name', 'username', 'email', 'number', 'profile_pic', 'state', 'start_budget', 'end_budget']
+        fields = ['full_name', 'username', 'email', 'number', 'profile_pic', 'state', 'start_budget', 'end_budget', 'salary']
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'full_name', 'placeholder': 'First Name',  'class': 'form-control'}),
@@ -138,6 +138,7 @@ class UpdateProfileForm(forms.ModelForm):
             'state': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
             'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
             'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
+            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Budget', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '012 345 678 910', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
         }
