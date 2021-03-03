@@ -4,6 +4,15 @@
     max-height: 100vh;
     display: none;
 }
+.changelist-form-container {
+    width: 80% !important;
+}
+#changelist-filter{
+    margin-top: 5px !important;
+}
+#changelist #changelist-filter h3 {
+    padding: 11px;
+}
 
 .toggle-nav-sidebar {
     z-index: 20;

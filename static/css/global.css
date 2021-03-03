@@ -12,6 +12,10 @@ a {
     text-decoration: none !important;
 }
 
+.state {
+    text-align: left;
+}
+
 .signup:hover {
     color: white !important;
     text-decoration: none !important;

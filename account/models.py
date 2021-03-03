@@ -7,7 +7,6 @@ class User(AbstractUser):
     email = models.EmailField(('email adress'), unique=True, null=True)
     full_name = models.CharField(max_length=100)
     age = models.IntegerField(null=True, blank=True)
-    is_employed = models.BooleanField(default=False)
     occupation = models.CharField(max_length=255, null=True)
     salary = models.IntegerField(('Amount'),null=True, blank=True)
     number = models.CharField(max_length=100, null=True)

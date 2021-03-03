@@ -15,12 +15,11 @@
 {% endblock %}
 
 {% block content %}
-<section id="cover" class="min-vh-100" style="margin-bottom: 100px;">
+<section id="cover" class="min-vh-100" style="margin-bottom: 300px;">
     <div id="cover-caption">
       <div class="container">
         <div class="row text-white">
-          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4 mb-5" style="max-width: 743px;
-        ">
+          <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4" style="max-width: 743px;">
             <h1 class="display-4 py-2 text-truncate" style="color: black;
             font-weight: 400;
             font-size: 55px;">Profile</h1>
@@ -67,7 +66,7 @@
                                 </div>
                             {% else %}
                             <div class="form-group">
-                                <label for="occupation">Estimated budget range*</label>
+                                <label for="occupation">Salary range*</label>
                                 <div style="display: flex;">
                                   {{form.start_budget}}
                                     {{form.start_budget.errors}}
@@ -86,6 +85,12 @@
                                   {{form.number}}
                                   {{form.number.errors}}
                               </div>
+                              <div class="state"><label  for="sel1">State*</label>
+                                {{form.state}}
+                                {{form.state.errors}}
+                
+                
+                            </div>
                             <div class="form-group" id="buttons">
                                 <p style="color: #595959;">Profile Picture</p>
                                 <div class="image"> <img  id="profileImage" src="{{ request.user.profile_pic.url }}" class="rounded" width="51"> </div> <span

@@ -236,29 +236,12 @@ input[type=range] {
                 </div>
               </div>
 
-              <div><label for="sel1">State*</label>
+              <div class="state"><label for="sel1">State*</label>
                 {{form.state}}
                 {{form.state.errors}}
 
 
             </div>
-
-              <div class="form-group">
-                <div class="yes-no-radio-container">
-                  <div class="yes-no-radio-title"> Are you Employed?*</div>
-                  <div class="radio-btns">
-                    <span class="radio-btns-option">
-                      {{form.is_employed}}
-                      {{form.is_employed.errors}}<label class="radio-label"
-                        for="radio-yes">Yes</label>
-                    </span>
-                    <span class="radio-btns-option">
-                      <input type="radio" name="yes-no-radio" value="no" id="radio-no"><label class="radio-label"
-                        for="radio-no">No</label>
-                    </span>
-                  </div>
-                </div>
-              </div>
               <br>
 
               <div class="form-group">
@@ -270,7 +253,7 @@ input[type=range] {
                 </div>
               </div>
               <div class="form-group">
-                <label for="customRange2" class="form-label">Your budget*</label>
+                <label for="customRange2" class="form-label">Salary range*</label>
 
                       {{form.salary}}
                       {{form.salary.errors}}
