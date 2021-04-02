@@ -10,7 +10,7 @@ class User(AbstractUser):
     occupation = models.CharField(max_length=255, null=True)
     salary = models.IntegerField(('Amount'),null=True, blank=True)
     number = models.CharField(max_length=100, null=True)
-    profile_pic = models.ImageField(upload_to='images')
+    profile_pic = models.ImageField(upload_to='images', null=True, blank=True)
     is_advisor = models.BooleanField(default=False)
     is_seeker = models.BooleanField(default=False)
     slug = models.SlugField(max_length=255, null=True, blank=True)

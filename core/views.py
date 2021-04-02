@@ -28,10 +28,11 @@ class MatchedView(ListView):
     def get_queryset(self):
         salary = self.request.GET.get('salary', self.request.user.salary)
         print(salary, "shhh")
-        queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=self.request.user.salary).filter(end_budget__budget__gte=self.request.user.salary)
+        queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=self.request.user.salary).filter(end_budget__budget__gte=self.request.user.salary).order_by('-id')[:1]
+        print(queryset)
 
         if salary:
-            queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=salary).filter(end_budget__budget__gte=salary)
+            queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=salary).filter(end_budget__budget__gte=salary).order_by('-id')[:1]
         print(queryset)
 
         return queryset
@@ -47,7 +48,7 @@ class MessageAdvisorView(FormMixin, DetailView):
         return context
 
     def get_success_url(self):
-        return reverse_lazy('core:matched-advisors')
+        return reverse_lazy('core:message-congratulations')
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
@@ -65,3 +66,7 @@ class MessageAdvisorView(FormMixin, DetailView):
 
 class CongratulationsPageView(TemplateView):
     template_name = 'congratulation.html'
+
+
+class MessageCongratulationsPageView(TemplateView):
+    template_name = 'mcongratulation.html'

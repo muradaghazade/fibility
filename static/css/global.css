@@ -6,6 +6,15 @@
 .container {
     width: 100% !important
 }
+#phone::-webkit-outer-spin-button,
+#phone::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.errorlist li {
+    color: red !important;
+}
 
 a {
     color: white;

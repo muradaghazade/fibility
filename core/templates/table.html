@@ -24,6 +24,9 @@
          <input class="btn apply" type="submit" value="Apply" style="margin-left: 5px; width: 200px;">
                 </form>
                     </div>
+                    {%if matched_advisors.count == 0%}
+                    <h1 style="color: black;">No results</h1>
+                    {% endif %}
                     {% for advisor in matched_advisors %}
                     {% if advisor.state == request.user.state %}
                     <div class="col-md-6 col-xs-12" style="margin-top: 44px;">

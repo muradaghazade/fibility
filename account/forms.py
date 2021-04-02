@@ -24,8 +24,8 @@ class AdvisorRegisterForm(UserCreationForm):
     profile_pic = forms.FileField(
         widget = forms.FileInput(
             attrs={
-                'id': "pic"
-            }))
+                'id': "nopic"
+            }), required=False)
 
     class Meta:
         model = User
@@ -42,7 +42,7 @@ class AdvisorRegisterForm(UserCreationForm):
             'is_employed': forms.CheckboxInput(attrs={'id': 'is_employed'}),
             'is_advisor': forms.CheckboxInput(attrs={'id': 'is_advisor', 'checked':'True'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
-            'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 67 89', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
+            'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '012-345-6789', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
             'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Salary', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
@@ -63,12 +63,6 @@ class SeekerRegisterForm(UserCreationForm):
                 'placeholder' : 'confirm password',
                 'class' : 'form-control',
             }))
-        
-    profile_pic = forms.FileField(
-        widget = forms.FileInput(
-            attrs={
-                'id': "pic"
-            }))
 
     class Meta:
         model = User
@@ -85,8 +79,8 @@ class SeekerRegisterForm(UserCreationForm):
             'is_seeker': forms.CheckboxInput(attrs={'id': 'is_seeker', 'checked': 'True'}),
             'age': forms.NumberInput(attrs={'id': 'number', 'placeholder': 'Age', 'class': 'form-control'}),
             'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
-            'number': forms.NumberInput(attrs={'id': 'number', 'placeholder': '012 345 67 89', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Budget', 'class': 'form-control'}),
+            'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '123-456-7890', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
+            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Salary range', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -106,25 +100,17 @@ class LoginForm(AuthenticationForm):
                 'class': 'form-control'
             }))
 
-    email = forms.CharField(
-        widget = forms.EmailInput(
-            attrs={
-                'id': 'email',
-                'placeholder': 'Your Email',
-                'class': 'form-control'
-            }))
-
     class Meta:
         model = User
-        fields = ['email', 'password']
+        fields = ['username', 'password']
 
 class UpdateProfileForm(forms.ModelForm):
 
     profile_pic = forms.FileField(
         widget = forms.FileInput(
             attrs={
-                'id': "pic"
-            }))
+                'id': "nopic"
+            }), required=False)
 
     class Meta:
         model = User
@@ -139,5 +125,5 @@ class UpdateProfileForm(forms.ModelForm):
             'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
             'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Budget', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
-            'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '012 345 67 89', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
+            'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '123-456-7890', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
         }
