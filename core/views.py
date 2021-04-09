@@ -14,6 +14,7 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['aboutus'] = AboutUsText.objects.order_by('-id').first
         context['moreonus'] = MoreOnUsText.objects.order_by('-id').first
+        print(self.request.user.slug)
         return context
 
 class MatchedView(ListView):

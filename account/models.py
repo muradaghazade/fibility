@@ -1,22 +1,44 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, BaseUserManager, UnicodeUsernameValidator
 from .common import slugify
+from .managers import UserManager
 from django.core.mail import send_mail
 
+from django.contrib.auth.base_user import BaseUserManager
+from django.utils.translation import ugettext_lazy as _
+
+
 class User(AbstractUser):
-    email = models.EmailField(('email adress'), unique=True, null=True)
+    username_validator = UnicodeUsernameValidator
+    username = models.CharField(
+        ('username'),
+        max_length=150,
+        blank=True,
+        null=True,
+        unique=False,
+        help_text=('Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.'),
+        validators=[username_validator],
+        error_messages={
+            'unique': ("A user with that username already exists."),
+        },
+    )
+    email = models.EmailField(('email adress'), unique=True)
     full_name = models.CharField(max_length=100)
     age = models.IntegerField(null=True, blank=True)
-    occupation = models.CharField(max_length=255, null=True)
+    occupation = models.CharField(max_length=255, null=True, blank=True)
     salary = models.IntegerField(('Amount'),null=True, blank=True)
-    number = models.CharField(max_length=100, null=True)
+    number = models.CharField(max_length=100, null=True, blank=True)
     profile_pic = models.ImageField(upload_to='images', null=True, blank=True)
     is_advisor = models.BooleanField(default=False)
     is_seeker = models.BooleanField(default=False)
     slug = models.SlugField(max_length=255, null=True, blank=True)
-    state = models.ForeignKey("State", on_delete=models.CASCADE, db_index=True, related_name='message', null=True)
+    state = models.ForeignKey("State", on_delete=models.CASCADE, db_index=True, related_name='message', null=True, blank=True)
     start_budget = models.ForeignKey("StartBudget", on_delete=models.CASCADE, db_index=True, related_name='start_user', null=True, blank=True)
     end_budget = models.ForeignKey("EndBudget", on_delete=models.CASCADE, db_index=True, related_name='end_user', null=True, blank=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []
+    objects = UserManager()
 
     class Meta:
         verbose_name = 'User'
@@ -24,7 +46,7 @@ class User(AbstractUser):
 
     def save(self, *args, **kwargs):
         super(User, self).save(*args, **kwargs)
-        self.slug = f'{slugify(self.username)}'
+        self.slug = f'{slugify(self.full_name)}-{self.id}'
         super(User, self).save(*args, **kwargs)
 
 class Message(models.Model):
