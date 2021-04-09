@@ -219,27 +219,6 @@ input[type=range] {
 
 
             </div>
-
-              <div class="form-group">
-                <label for="occupation">Occupation*</label>
-                  {{form.occupation}}
-                  {{form.occupation.errors}}
-                <div class="invalid-feedback">
-                  Your Occupation is invalid
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="occupation">Estimated budget range*</label>
-                <div style="display: flex;">
-                  {{form.start_budget}}
-                    {{form.start_budget.errors}}
-                    --
-                    {{form.end_budget}}
-                    {{form.end_budget.errors}}
-
-                </div>
-              </div>
               <!-- <div class="form-group">
                 <label for="customRange2" class="form-label">Your salary range*</label>
                 <div class="range">

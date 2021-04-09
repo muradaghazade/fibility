@@ -29,20 +29,16 @@ class AdvisorRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('full_name','email','password1','password2','occupation', 'salary', 'number', 'is_advisor', 'profile_pic', 'state', 'start_budget', 'end_budget')
+        fields = ('full_name','email','password1','password2', 'number', 'is_advisor', 'profile_pic', 'state')
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'fullname', 'placeholder': 'Full Name', 'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
-            'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
-            'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
             # 'type_of_advice': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'name@gmail.com', 'class': 'form-control'}),
             'is_employed': forms.CheckboxInput(attrs={'id': 'is_employed'}),
             'is_advisor': forms.CheckboxInput(attrs={'id': 'is_advisor', 'checked':'True'}),
-            'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '012-345-6789', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Salary', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -65,20 +61,17 @@ class SeekerRegisterForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('full_name','email','password1','password2', 'occupation', 'salary', 'number', 'is_seeker', 'profile_pic', 'age', 'state', 'start_budget', 'end_budget')
+        fields = ('full_name','email','password1','password2', 'number', 'is_seeker', 'profile_pic', 'age', 'state')
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'fullname', 'placeholder': 'Full Name', 'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
-            'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
-            'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
             # 'type_of_advice': forms.Select(attrs={'id': 'sell', 'class': 'form-control select__field'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'name@gmail.com', 'class': 'form-control'}),
             'is_seeker': forms.CheckboxInput(attrs={'id': 'is_seeker', 'checked': 'True'}),
             'age': forms.NumberInput(attrs={'id': 'number', 'placeholder': 'Age', 'class': 'form-control'}),
-            'occupation': forms.TextInput(attrs={'id': 'occupation', 'placeholder': 'occupation', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '123-456-7890', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
-            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Salary range', 'class': 'form-control'}),
+            
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
         }
 
@@ -116,15 +109,12 @@ class UpdateProfileForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['full_name', 'email', 'number', 'profile_pic', 'state', 'start_budget', 'end_budget', 'salary']
+        fields = ['full_name', 'email', 'number', 'profile_pic', 'state']
 
         widgets = {
             'full_name': forms.TextInput(attrs={'id': 'full_name', 'placeholder': 'First Name',  'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'id': 'email', 'placeholder': 'Bio',  'class': 'form-control'}),
             'state': forms.Select(attrs={'id': 'sell', 'placeholder': 'Username', 'class': 'form-control select__field'}),
-            'start_budget': forms.Select(attrs={'id': 'start-budget', 'class': 'form-control select__field'}),
-            'end_budget': forms.Select(attrs={'id': 'end-budget', 'class': 'form-control select__field'}),
-            'salary': forms.NumberInput(attrs={'id': 'salary', 'placeholder': 'Budget', 'class': 'form-control'}),
             # 'company': forms.TextInput(attrs={'id': 'company', 'placeholder': 'company', 'class': 'form-control'}),
             'number': forms.NumberInput(attrs={'id': 'phone', 'placeholder': '123-456-7890', 'class': 'form-control', 'pattern': '[0-9]{3}-[0-9]{2}-[0-9]{3}'}),
         }

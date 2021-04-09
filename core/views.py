@@ -14,29 +14,23 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['aboutus'] = AboutUsText.objects.order_by('-id').first
         context['moreonus'] = MoreOnUsText.objects.order_by('-id').first
-        print(self.request.user.slug)
         return context
 
 class MatchedView(ListView):
     model = User
     context_object_name = "matched_advisors"
     template_name = "table.html"
+    queryset = User.objects.filter(is_advisor=True).order_by('-id')[:1]
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
-    def get_queryset(self):
-        salary = self.request.GET.get('salary', self.request.user.salary)
-        print(salary, "shhh")
-        queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=self.request.user.salary).filter(end_budget__budget__gte=self.request.user.salary).order_by('-id')[:1]
-        print(queryset)
+    # def get_queryset(self):
+        
+    #     print(queryset)
 
-        if salary:
-            queryset = User.objects.filter(is_advisor=True).filter(start_budget__budget__lte=salary).filter(end_budget__budget__gte=salary).order_by('-id')[:1]
-        print(queryset)
-
-        return queryset
+    #     return queryset
 
 class MessageAdvisorView(FormMixin, DetailView):
     model = User

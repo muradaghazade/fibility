@@ -20,7 +20,6 @@
                     <div class="col-12">
                  <form action="{% url 'core:matched-advisors' %}" method="GET" style="display: flex;">
                     <p style=" color: #737B7D; margin-top: 17px; margin-right: 5px;">Your annual salary range 0-100k :</p>
-         <input class="form-control" type="text" name="salary" placeholder="${{request.user.salary}}" value="{{request.GET.salary}}">
          <input class="btn apply" type="submit" value="Apply" style="margin-left: 5px; width: 200px;">
                 </form>
                     </div>
@@ -32,15 +31,14 @@
                     <div class="col-md-6 col-xs-12" style="margin-top: 44px;">
                         <div class="card p-3">
                             <div class="d-flex align-items-center">
-                                <div class="image"> <img src="{{advisor.profile_pic.url}}" class="rounded" width="51"> </div>
+                                <div class="image"> <img src="" class="rounded" width="51"> </div>
                                 <div class="ml-3 w-100">
                                     <h4 class="mb-0 mt-0" style="color: #737B7D; text-align: left; font-size: 18px!important;">{{ advisor.full_name }}</h4>
                                     <div class=" mt-2 d-flex justify-content-between rounded text-white ">
                                         <p class="card-text"
                                 style="width:109px; text-align:left; display: inline-block; background-color: #9ff0cb; color: #16613f ;">
-                                ${{ advisor.start_budget }} - ${{advisor.end_budget}}
                             </p>
-                            <a href="{% url 'core:message-advisor' advisor.slug %}">Contact with me</a>
+                            <a href="{% url 'core:message-advisor' advisor.slug %}">Contact me</a>
                                     </div>
                                   
                                 </div>
@@ -75,7 +73,7 @@
                     <div class="col-md-6 col-xs-12" style="margin-bottom:27px; margin-top: 44px;">
                         <div class="card p-3">
                             <div class="d-flex align-items-center">
-                                <div class="image"> <img src="{{advisor.profile_pic.url}}" class="rounded" width="51"> </div>
+                                <div class="image"> <img src="" class="rounded" width="51"> </div>
                                 <div class="ml-3 w-100">
                                     <h4 class="mb-0 mt-0" style="color: black; text-align: left;">{{ advisor.full_name }}</h4>
                                     <div class="p-2 mt-2 d-flex justify-content-between rounded text-white ">
